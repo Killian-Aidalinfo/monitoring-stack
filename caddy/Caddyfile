@@ -1,0 +1,18 @@
+{
+    email admin@example.com
+}
+
+ntfy.{$DOMAIN} {
+    encode zstd gzip
+    reverse_proxy ntfy:80
+}
+
+kuma.{$DOMAIN} {
+    encode zstd gzip
+    reverse_proxy uptime-kuma:3001
+}
+
+hello.{$DOMAIN} {
+    encode zstd gzip
+    reverse_proxy hello:80
+}
